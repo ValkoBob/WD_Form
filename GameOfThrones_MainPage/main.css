@@ -84,6 +84,11 @@ body {
     color: #fef8eb;
     font-size: 1.2rem;
     min-height: 10%;
+    outline: none;
+}
+
+.form-part__input option:first-child {
+    display: none;
 }
 
 input::placeholder {
