@@ -2,11 +2,13 @@ const firstForm = document.getElementById('firstForm');
 const secondForm = document.getElementById('secondForm');
 const form1 = document.getElementById('form1');
 const form2 = document.getElementById('form2');
-const emailRegExp = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+const emailRegExp = /^[\w\W\d.!#$%&'*+/=?^_`{|}~-]+@[\w\W\d-]+(?:\.[\w\W\d-]+)*$/;
 const errorClass = "input--error";
 const displayNone = "display-none";
 const fields1 = form1.querySelectorAll('.field1');
 const fields2 = form2.querySelectorAll('.field2');
+const minLengthOfField = 8;
+const maxLengthOfField = 100;
 
 const email = document.getElementById('email');
 let switchEmailError = true;
@@ -37,7 +39,7 @@ const password = document.getElementById('password');
 let switchPasswordError = true;
 
 function checkPassword() {
-    if (password.value.length < 8 || password.value.length > 100 || !password) {
+    if (password.value.length < minLengthOfField || password.value.length > maxLengthOfField || !password) {
         password.classList.add(errorClass);
         return false;
     }
@@ -75,7 +77,7 @@ submit.addEventListener('click', (e) => {
 });
 
 const name = document.getElementById('name');
-const regExpForAlphaNumeric = /^[a-zA-Z0-9_]*$/;
+const regExpForAlphaNumeric = /^[\w\W\d_]*$/;
 let switchNameError = true;
 
 function checkName() {
@@ -104,7 +106,7 @@ const questionArea = document.getElementById('question');
 let switchQuestionAreaError = true;
 
 function checkQuestionArea() {
-    if (questionArea.value.length < 8 || questionArea.value.length > 100 || !questionArea) {
+    if (questionArea.value.length < minLengthOfField || questionArea.value.length > maxLengthOfField || !questionArea) {
         questionArea.classList.add(errorClass);
         return false;
     }
