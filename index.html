@@ -6,11 +6,17 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Game of Thrones</title>
   <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="main.css">
+  <script src="https://code.jquery.com/jquery-3.3.1.js"
+          integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+          crossorigin="anonymous"></script>
+  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+  <link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
 <body>
 <section class="container">
-  <div class="stark_emblem"></div>
+  <div class="slider">
+    <div class="stark_emblem"></div>
+  </div>
   <div class="form-part__first" id="firstForm">
     <h1 class="form-part__title">GAME OF THRONES</h1>
     <form class="form-part__form" id="form1">
@@ -50,7 +56,7 @@
       </label>
       <select id="house" class="form-part__input field2">
         <option>Select House</option>
-        <option value="arryn">Arryn of the Eyrie</option>
+        <!--<option value="arryn">Arryn of the Eyrie</option>
         <option value="baratheon">Baratheon of Storm's End</option>
         <option value="greyjoy">Greyjoy of Pyke</option>
         <option value="lannister">Lannister of Casterly Rock</option>
@@ -58,7 +64,7 @@
         <option value="stark">Stark of Winterfell</option>
         <option value="targaryen">Targaryen of King's Landing</option>
         <option value="tully">Tully of Riverrun</option>
-        <option value="tyrell">Tyrell of Highgarden</option>
+        <option value="tyrell">Tyrell of Highgarden</option>-->
       </select>
       <label class="form-part__label" for="question">
         Your preferences, hobbies, wishes, etc.
@@ -69,6 +75,8 @@
     </form>
   </div>
 </section>
-<script src="script.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/js/select2.min.js"></script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<script src="js/script.js"></script>
 </body>
 </html>
