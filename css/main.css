@@ -215,9 +215,9 @@ input[type="checkbox"]:not(:checked) + label:before {
 
 input[type="checkbox"]:checked + label:after,
 input[type="checkbox"]:not(:checked) + label:after {
-  content: "✓";
+  content: "X";
   position: absolute;
-  left: 3%;
+  left: 5%;
   bottom: 3%;
   color: #fef8eb;
 }
