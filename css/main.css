@@ -173,10 +173,9 @@ option {
 .form-part__submit {
   background-color: #c19a49;
   color: #fef8eb;
-  font-size: 1.3rem;
-  padding: 1rem;
+  font-size: 2vh;
+  padding: 1vh;
   margin-top: 10%;
-  min-height: 10%;
   cursor: pointer;
   border: none;
 }
@@ -228,10 +227,6 @@ input[type="checkbox"]:not(:checked) + label:after {
 
 input[type="checkbox"]:checked + label:after {
   opacity: 1;
-}
-
-.display-none {
-  display: none;
 }
 
 .input--error {

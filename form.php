@@ -1,10 +1,33 @@
+<?php
+session_start();
+if (isset($_POST["save"])) {
+    $name = $_POST["name"];
+    function writeToFile($fileName, $data)
+    {
+        $path = "users/" . $fileName . ".json";
+        file_put_contents($path, json_encode($data));
+    }
+
+    if (preg_match(" /^\w+$/", $name)) {
+        if ($_POST["house"] && $_POST["hobby"]) {
+            $user_data = array(
+                "name" => $name,
+                "house" => $_POST["house"],
+                "hobby" => $_POST["hobby"]
+            );
+            writeToFile($_SESSION["email"], $user_data);
+            session_destroy();
+        }
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Game of Thrones</title>
+  <title>Game of Thrones(Form)</title>
   <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
   <script src="https://code.jquery.com/jquery-3.3.1.js"
           integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
@@ -17,46 +40,23 @@
   <div class="slider">
     <div class="stark_emblem"></div>
   </div>
-  <div class="form-part__first" id="firstForm">
-    <h1 class="form-part__title">GAME OF THRONES</h1>
-    <form class="form-part__form" id="form1">
-      <label class="form-part__label" for="email">
-        Enter your email
-      </label>
-      <input class="form-part__input field1" type="email" id="email"
-             placeholder="arya@westeros.com">
-      <label class="form-part__label" for="password">
-        Choose secure password
-      </label>
-      <div class="form-part__username">Must be at least 8 characters</div>
-      <input class="form-part__input field1" type="password" id="password"
-             placeholder="password" maxlength="100" minlength="8" required>
-      <div class="form-part__checkbox">
-        <input id="checkbox" type="checkbox">
-        <label for="checkbox">
-          Remember me
-        </label>
-      </div>
-      <input type="submit" value="Sign Up" class="form-part__submit" id="submit">
-    </form>
-  </div>
-  <div class="form-part__second display-none" id="secondForm">
+  <div class="form-part__second" id="secondForm">
     <h1 class="form-part__title">GAME OF THRONES</h1>
     <p class="form-part__greeting">
       You've successfully joined the game.<br>
       Tell us more about yourself.
     </p>
-    <form class="form-part__form" id="form2">
+    <form class="form-part__form" id="form2" method="post">
       <label class="form-part__label" for="name">Who are you?</label>
       <div class="form-part__username">Alpha-numeric username</div>
-      <input class="form-part__input field2" type="text" id="name"
-             placeholder="arya">
+      <input class="form-part__input field" type="text" id="name"
+             placeholder="arya" name="name">
       <label class="form-part__label" for="house">
         Your Great House
       </label>
-      <select id="house" class="form-part__input field2">
+      <select id="house" class="form-part__input" name="house">
         <option>Select House</option>
-        <!--<option value="arryn">Arryn of the Eyrie</option>
+        <option value="arryn">Arryn of the Eyrie</option>
         <option value="baratheon">Baratheon of Storm's End</option>
         <option value="greyjoy">Greyjoy of Pyke</option>
         <option value="lannister">Lannister of Casterly Rock</option>
@@ -64,14 +64,14 @@
         <option value="stark">Stark of Winterfell</option>
         <option value="targaryen">Targaryen of King's Landing</option>
         <option value="tully">Tully of Riverrun</option>
-        <option value="tyrell">Tyrell of Highgarden</option>-->
+        <option value="tyrell">Tyrell of Highgarden</option>
       </select>
       <label class="form-part__label" for="question">
         Your preferences, hobbies, wishes, etc.
       </label>
-      <textarea id="question" class="form-part__textArea field2"
+      <textarea id="question" class="form-part__textArea" name="hobby"
                 placeholder="I have a long TOKILL List..."></textarea>
-      <input type="submit" value="Save" class="form-part__submit" id="save">
+      <input type="submit" value="Save" class="form-part__submit" id="save" name="save">
     </form>
   </div>
 </section>
