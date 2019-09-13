@@ -50,27 +50,18 @@ if (isset($_POST["save"])) {
       <label class="form-part__label" for="name">Who are you?</label>
       <div class="form-part__username">Alpha-numeric username</div>
       <input class="form-part__input field" type="text" id="name"
-             placeholder="arya" name="name">
+             placeholder="arya" name="name" maxlength="100" minlength="1" required>
       <label class="form-part__label" for="house">
         Your Great House
       </label>
-      <select id="house" class="form-part__input" name="house">
-        <option>Select House</option>
-        <option value="arryn">Arryn of the Eyrie</option>
-        <option value="baratheon">Baratheon of Storm's End</option>
-        <option value="greyjoy">Greyjoy of Pyke</option>
-        <option value="lannister">Lannister of Casterly Rock</option>
-        <option value="martell">Martell of Sunspear</option>
-        <option value="stark">Stark of Winterfell</option>
-        <option value="targaryen">Targaryen of King's Landing</option>
-        <option value="tully">Tully of Riverrun</option>
-        <option value="tyrell">Tyrell of Highgarden</option>
+      <select id="house" class="form-part__input" name="house" required>
+        <option value="">Select House</option>
       </select>
       <label class="form-part__label" for="question">
         Your preferences, hobbies, wishes, etc.
       </label>
       <textarea id="question" class="form-part__textArea" name="hobby"
-                placeholder="I have a long TOKILL List..."></textarea>
+                placeholder="I have a long TOKILL List..." maxlength="100" minlength="1" required></textarea>
       <input type="submit" value="Save" class="form-part__submit" id="save" name="save">
     </form>
   </div>

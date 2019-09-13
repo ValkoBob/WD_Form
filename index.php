@@ -5,17 +5,15 @@ if (isset($_POST["submit"])) {
     $password = $_POST["password"];
     if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
         if (preg_match("/^[\w]{8,16}$/", $password)) {
-            if (isset($_POST["checkbox"])) {
-                $unsafe_chars = array("<", ">", ":", "'", "/", "\\", "|", "?", "*");
-                $user_filename = str_replace($unsafe_chars, "", $email);
-                $path = "users/" . $user_filename . ".json";
-                if (!file_exists($path)) {
-                    $file = fopen($path, "w");
-                    fclose($file);
-                }
-                $_SESSION["email"] = $user_filename;
-                header("Location: form.php");
+            $unsafe_chars = array("<", ">", ":", "'", "/", "\\", "|", "?", "*");
+            $user_filename = str_replace($unsafe_chars, "", $email);
+            $path = "users/" . $user_filename . ".json";
+            if (!file_exists($path)) {
+                $file = fopen($path, "w");
+                fclose($file);
             }
+            $_SESSION["email"] = $user_filename;
+            header("Location: form.php");
         }
     }
 }
